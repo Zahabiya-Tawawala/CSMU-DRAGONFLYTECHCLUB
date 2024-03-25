@@ -1,0 +1,129 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scrollbar-width: none;
+}
+/* -------------------------------------CSS CUSTOM PROPERTIES----------------------------------- */
+:root {
+    --font-color: linear-gradient(to right, purple, orange);
+    --footer-bg-color: rgba(128, 128, 128, 0.473);
+    --heading-size: 45px;
+    --bg-color: linear-gradient(to right, purple, orange);
+    --p-line-height: 25px;
+    --para-font-size: 15px;
+    --sub-head-size: 35px;
+  }
+  @font-face {
+    font-family: head;
+    src: url(../Assets/fonts/Dosis/Dosis-VariableFont_wght.ttf);  
+}
+@font-face {
+    font-family: sub-head;
+    src: url(../Assets/fonts/Galdeano/Galdeano-Regular.ttf);
+}
+@font-face {
+    font-family: para;
+    src: url(../Assets/fonts/Maitree/Maitree-Regular.ttf);
+}
+
+.container{
+    min-height:100vh;
+}
+
+/* ----------Navbar-container---------- */
+.navbar-container{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid grey;
+    
+    
+}
+/* ----------------nav-logo------------- */
+.navbar-container .logo h1{
+    font-size: 12px;
+    font-family: cantarell;
+    letter-spacing: 6px;
+    font-weight: 200;
+    margin-left: 20px;
+    
+}
+/* -------------navbar-links---------- */
+ .navbar-container .nav-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
+
+}
+.nav-links li a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+/* -------login-signup-btn------------ */
+
+.login_signup-btn .login-btn{
+    padding: 1vw;
+    background-color:transparent;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .signup-btn{
+    padding: 1vw;
+    background-color:black;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .register-btn{
+    padding: 1vw;
+    background-color:black;
+    
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .register-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+.login-btn a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+.contact_us-btn a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+ .navbar-container ul li .login_signup-btn .signup-btn a{
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    
+}
+.navbar-container ul li .signoutbtn{
+    padding: 1vw;
+    background-color:black;
+    
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .signoutbtn {
+    color: white;
+    text-decoration: none;
+}
+/* -------------active-home-link------------ */
+#active{
+    background: linear-gradient(to right, purple, orange);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

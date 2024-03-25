@@ -1,0 +1,614 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scrollbar-width: none;
+}
+/* -------------------------------------CSS CUSTOM PROPERTIES----------------------------------- */
+:root {
+    --font-color: linear-gradient(to right, purple, orange);
+    --footer-bg-color: rgba(128, 128, 128, 0.473);
+    --heading-size: 45px;
+    --bg-color: linear-gradient(to right, purple, orange);
+    --p-line-height: 25px;
+    --para-font-size: 15px;
+    --sub-head-size: 35px;
+  }
+  @font-face {
+    font-family: head;
+    src: url(../Assets/fonts/Dosis/Dosis-VariableFont_wght.ttf);  
+}
+@font-face {
+    font-family: sub-head;
+    src: url(../Assets/fonts/Galdeano/Galdeano-Regular.ttf);
+}
+@font-face {
+    font-family: para;
+    src: url(../Assets/fonts/Maitree/Maitree-Regular.ttf);
+}
+.container{
+    min-height:100vh;
+}
+/* ----------Navbar-container---------- */
+.navbar-container{
+    width: 100%;
+    padding: 1vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid grey;
+    
+    
+}
+.navbar-container .logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/* ----------------nav-logo------------- */
+.navbar-container .logo h1{
+    font-size: 12px;
+    font-family: cantarell;
+    letter-spacing: 6px;
+    font-weight: 200;
+    margin-left: 20px;
+}
+/* -------------navbar-links---------- */
+.nav-links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+}
+.nav-links li a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+/* -------login-signup-btn------------ */
+
+.login_signup-btn .login-btn{
+    padding: 1vw;
+    background-color:transparent;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .signup-btn{
+    padding: 1vw;
+    background-color:black;
+    
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .register-btn{
+    padding: 1vw;
+    background-color:black;
+    
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.login_signup-btn .register-btn a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.login-btn a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+.contact_us-btn a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+ .navbar-container ul li .login_signup-btn .signup-btn a{
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    
+}
+/* -------------Open-close-menu------------- */
+.navbar-container  .fa-solid{
+    display: none;
+    position: relative;
+}
+/* -------------------page1----------------- */
+.page1{
+    /* min-height: 100vh; */
+    width: 100%;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vw;
+}
+/* --------------left-col---------------- */
+.page1 .left-col{
+    flex-basis: 40%;
+    padding: 0.8vw;
+}
+.left-col .hero-text {
+    font-size: var(--heading-size);
+    font-family: head;
+    margin-bottom: 35px;
+    background: linear-gradient(to right, purple, orange);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+}
+.left-col p{
+    font-size: var(--para-font-size);
+    font-family: para;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* -------------buttons--------------- */
+.btn{
+    margin-top: 30px;
+}
+ iframe{
+    display: none;
+    margin-top: 18px;
+    height: 400px;
+    width:100%;
+    margin-bottom: 20px;
+}
+.btn .get_started-btn{
+    padding: 15px;
+    font-size: 16px;
+    background: linear-gradient(to right, #AA3D71, #F1966E);
+    border: none;
+    border-radius: 8px;
+    width: 200px;
+    cursor: pointer;
+}
+.btn .get_started-btn a{
+text-decoration: none;
+color: white;
+font-size: 12px;
+font-family: para;
+}
+
+/* ----------------Right-Col----------------------- */
+.right-col{
+    flex-basis: 40%;
+    position: relative;
+}
+
+.right-col img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.content{
+    padding: 20px;
+    background: #f7f7f7;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.content p{
+    font-size: var(--para-font-size);
+    font-family: para;
+    background-color:#ffffff;
+    box-shadow: 0px 2px 4px gray;
+    padding: 10px;
+    border-radius: 12px;
+    
+
+}
+
+
+/* -------------------------footer------------------------------- */
+footer{
+    min-height: 300px;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.473);
+}
+/* --------------------part1-------------------- */
+
+footer .part1{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* ---------------Contact----------------- */
+.part1 .contact{
+    flex-basis: 25%;
+}
+.part1 .contact h3{
+    font-size: 20px;
+    margin-bottom: 1vw;
+}
+.part1 .contact h4{
+    font-size: 15px;
+    margin-top: 1vw;
+}
+.part1 .contact h4 a{
+    text-decoration: none;
+    color: black;
+}
+.part1 .contact a{
+    text-decoration: none;
+    color: black;
+}
+.part1 .contact i{
+    margin-top: 1vw;
+    font-size: 25px;
+}
+/* -------------------------Quick-links------------------ */
+.part1 .quick_links{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    
+}
+.part1 .quick_links h3{
+    font-size: 20px;
+    margin-bottom: 1vw;
+}
+.part1 .quick_links ul{
+    list-style: none;
+}
+.part1 .quick_links ul li a{
+    text-decoration: none;
+    color: black;
+}
+.part1 .quick_links ul li {
+    text-decoration: none;
+    color: black;
+    margin-top: 1vw;
+    font-size: 15px;
+    transition: transform 0.5s;
+}
+.part1 .quick_links ul li:hover{
+    transform: translateY(-4px);
+    color: red;
+    
+}
+/* -------------------Communities-------------------- */
+.foot_communities{
+    flex-basis: 25%;
+}
+.foot_communities h3{
+    font-size: 20px;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+.foot_communities h4{
+    margin-top: 1vw;
+}
+.foot_communities h4 a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    margin-top: 1vw;
+}
+/* -----------------part2-------------- */
+.part2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8vw;
+    height: 100px;
+}
+/* -------------------------Copyright----------------- */
+.part2 h3{
+    font-size: 15px;
+}
+/* -----------------social media icons-------------- */
+.social_media-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8vw;
+    gap: 10px;
+}
+.social_media-icons a{
+    text-decoration: none;
+    color: black;
+}
+.social_media-icons a i{
+    font-size: 25px;
+    color: black;
+    transition: transform 0.5s;
+}
+.social_media-icons a i:hover{
+    transform: translateY(-5px);
+    font-size: 25px;
+    color:red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------Media------------ */
+/* ---------------------For-Tablet--------------------- */
+@media only screen and (min-width:600px){
+
+    .nav-links{
+       display: flex;
+       
+       align-items: center;
+       gap: 30px;
+    }
+    .nav-links li a{
+       font-size: 15px;
+    }
+    .login_signup-btn {
+       display: block;
+    }
+   /* --------------page1----------------- */
+   .page1{
+       display: flex;
+       justify-content: space-around;
+       margin-bottom: 0;
+   }
+   .page1 .left-col{
+       flex-basis: 45%;
+   }
+   .left-col .hero-text{
+       font: 25px;
+   }
+   .left-col p{
+       margin-top: 15px;
+       margin-bottom: 15px;
+   }
+   /* --------------Buttons-------------- */
+   .btn{
+       margin-top: 20px;
+   }
+   .btn .get_started-btn{
+       width: 180px;
+   }
+   
+   /* -------------------Right-col--------------- */
+   .right-col{
+       flex-basis: 45%;
+   }
+   
+
+ 
+   
+   }
+   /* ------------------For 4K Screen----------------------- */
+   @media only screen and (min-width:1200px){
+       .navbar-container{
+           width: 100%;
+           padding: 1vw;
+           height: 100px;
+       }
+       .navbar-container .logo h1{
+           font-size: 16px;
+           letter-spacing: 8px;
+           font-weight: 300;
+   
+       }
+       .nav-links{
+           gap: 20px;
+       }
+       .nav-links a{
+           font-size: 25px;
+       }
+       .login_signup-btn .login-btn{
+           width: 100px;
+          }
+          .login_signup-btn .signup-btn{
+           width: 100px;
+          }
+   
+      /* /* ------------------------Page1------------------------ */
+      .page1 .left-col{
+       padding: 1vw;
+      }
+      .left-col .hero-text{
+       font-size: 50px;
+      }
+      .left-col p{
+       font-size: 25px;
+      }
+      .btn .get_started-btn{
+       width: 300px;
+       padding: 20px;
+      }
+     .content p{
+        font-size: 25px;
+     }
+
+       /* --------------------Footer-------------- */
+       footer{
+           min-height: 400px;
+       }
+       .part1 .contact h3{
+           font-size: 30px;
+       }
+       .part1 .contact h4{
+           font-size: 22px;
+       }
+       .part1 .contact i{
+           font-size: 35px;
+       }
+       /* ------------------------quick-links--------------------- */
+       .part1 .quick_links h3{
+           font-size: 30px;
+       }
+       .part1 .quick_links ul li a{
+           font-size: 22px;
+       }
+       /* ------------------------Communities-------------------------- */
+       .foot_communities h3{
+           font-size: 30px;
+       }
+       .foot_communities h4 a{
+           font-size: 22px;
+       }
+       /* ------------------------------Part2---------------------------- */
+       .part2{
+           height: 120px;
+       }
+       .part2 h3{
+           font-size: 22px;
+       }
+       .social_media-icons a i{
+           font-size: 30px;
+       }
+       } 
+       /* ----------------------------------Mobile-Devices---------------------------- */
+       @media only screen and (max-width:600px){
+        .navbar-container{
+            width: 100%;
+            min-height: 80px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1vw;
+        }
+        .navbar-container .logo h1{
+            font-size: 12px;
+            letter-spacing: 6px;
+            margin-top: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .navbar-container .nav-links .fa-solid{
+            display: block;
+            font-size: 30px;
+            margin-top: 4vw;
+            position:absolute;
+            top:6px;
+            right: 25px;
+            
+          
+        }
+         .navbar-container ul{
+            background-color:#f7f7f7;
+            display: block;
+            padding-top: 16vw;
+            padding-left: 4vw;
+            position: fixed;
+            top: -300px;
+            gap: 10px;
+            height: 300px;
+            width: 100%;
+            transition: top 0.5s;
+            z-index: 1;
+            box-shadow: 0px 2px 4px 0.8px;
+        }
+        .navbar-container .nav-links li{
+            margin-top: 25px;
+        }
+        .navbar-container ul .login_signup-btn{
+            margin-top: 1vw;
+        }
+        .navbar-container .nav-links .login_signup-btn .register-btn{
+         width: 100px;
+         padding: 10px;
+         border-radius: 12px;
+
+     }
+     .navbar-container .nav-links .login_signup-btn .register-btn{
+         width: 100px;
+         
+     }
+        .navbar-container .fa-bars{
+            display: block;
+            position: absolute;
+            font-size: 30px;
+            top: 25px;
+            right: 25px;
+            
+            
+        }
+           /* --------------------------page1--------------------- */
+           .page1{
+               flex-direction: column;
+               padding: 3vw;
+               margin-bottom: 0;
+           }
+           .page1 .left-col{
+               margin-top: 2vw;
+               padding: 2vw;
+               
+           }
+       
+           .btn{
+               display: flex;
+               flex-direction: column;
+               gap: 10px;
+           }
+             .container iframe{
+            height: 600px;
+            width: 100%;
+            
+           }
+          
+  
+          
+           /* -------------------footer------------------------- */
+           footer{
+              display: flex;
+              flex-direction: column;
+              margin-top: 0;
+           }
+           footer .part1{
+               display: flex;
+               flex-direction: column;
+               justify-content: start;
+               align-items: start;
+               padding-left: 20px;
+               text-align: start;
+           }
+          .part1 .contact{
+           flex-basis: 100%;
+           margin-top: 10px;
+           margin-bottom: 10px;
+          }
+          .part1  .contact h3{
+           
+           margin-top: 10px;
+           margin-bottom: 10px;
+          }
+          .part1 .contact h4{
+           font-size: 12px;
+          }
+          .part1 .quick_links{
+           margin-top: 10px;
+           margin-bottom: 10px;
+          }
+          .foot_communities{
+           margin-top: 10px;
+           margin-bottom: 10px;
+          }
+       /* ------------------------footer-part2----------------- */
+       .part2 h3{
+           font-size: 10px;
+       }
+       .social_media-icons a i{
+           font-size: 20px;
+       }
+       }

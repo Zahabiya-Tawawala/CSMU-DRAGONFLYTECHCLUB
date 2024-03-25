@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login-SignUp</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+    <!-------------------------------------- sign up page html -------------------------------------->
+
+    <div class="form-wrapper sign-up">
+      <form id="MainForm">
+        <h2>Log In</h2>
+        <div class="input-group">
+          <input type="email" id="emailInp" required />
+          <label for="email">Email</label>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-group">
+          <input type="password" id="passwordinp" required />
+          <label for="email">Password</label>
+          <i class="fa-solid fa-lock"></i>
+        </div>
+       
+        <input type="checkbox" onclick="myFunction()">Show Password &nbsp;&nbsp;&nbsp;
+        &nbsp; &nbsp;       <Label id="forgotpasslable">Forgot Password?</Label><br><br>
+        <button type="submit" id="signup-btn">LogIn</button>
+        
+        <div class="signUp-link">
+          <p>
+            Already have an account?
+            <a href="signup.html" class="signInBtn-link">Sign Up</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <script>   function myFunction() {
+      var x = document.getElementById("passwordinp");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }</script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      import {
+        getDatabase,
+        get,
+        ref,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        sendPasswordResetEmail
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDqexaW5YyzI8jrDzPpS829E6WQHbq8XYM",
+        authDomain: "dragonflytechclub-e393e.firebaseapp.com",
+        databaseURL: "https://dragonflytechclub-e393e-default-rtdb.firebaseio.com",
+        projectId: "dragonflytechclub-e393e",
+        storageBucket: "dragonflytechclub-e393e.appspot.com",
+        messagingSenderId: "238610046387",
+        appId: "1:238610046387:web:6ffdf41fc62d05c04cffc6",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+      const auth = getAuth(app);
+      const dbref = ref(db);
+
+      let EmailInp = document.getElementById("emailInp");
+      let PassInp = document.getElementById("passwordinp");
+      let MainForm = document.getElementById("MainForm");
+      let ForgotPassLable = document.getElementById("forgotpasslable");
+      let SignInUser = (event) => {
+        event.preventDefault();
+        signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+          .then((credentials) => {
+            get(child(dbref, "UsersAuthList/" + credentials.user.uid)).then(
+              (snapshot) => {
+                if (snapshot.exists) {
+                  sessionStorage.setItem(
+                    "user-info",
+                    JSON.stringify({
+                      firstname: snapshot.val().firstname,
+                      lastname: snapshot.val().lastname
+                    })
+                  );
+                  sessionStorage.setItem(
+                    "user-creds",
+                    JSON.stringify(credentials.user)
+                  );
+                  window.location.href = "home.html";
+                }
+              }
+            );
+          })
+          .catch((error) => {
+            alert(error.message);
+            console.log(error.code);
+            console.log(error.message);
+          });
+      };
+
+let ForgotPassword = () =>{
+  sendPasswordResetEmail(auth, EmailInp.value)
+  .then(()=>{
+    alert("Password Reset Link Has been sent to your Email")
+  })
+  .catch((error)=>{
+    console.log(error.code);
+    console.log(error.message);
+  })
+}
+
+      MainForm.addEventListener("submit", SignInUser);
+      ForgotPassLable.addEventListener('click', ForgotPassword);
+    </script>
+   
+  </body>
+</html>

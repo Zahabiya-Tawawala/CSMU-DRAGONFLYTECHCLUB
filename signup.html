@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login-SignUp</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  </head>
+  <body>
+    <!-------------------------------------- sign up page html -------------------------------------->
+
+    <div class="form-wrapper sign-up">
+      <form id="MainForm">
+        <h2>Sign Up</h2>
+
+        <div class="input-group">
+          <input type="text" id="fnameInp" required />
+          <label for="fname">First Name</label>
+          
+        </div>
+        <div class="input-group">
+          <input type="text" id="lnameInp" required />
+          <label for="lname">Last Name</label>
+         
+        </div>
+        <div class="input-group">
+          <input type="email" id="emailInp" required />
+          <label for="email">Email</label>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-group">
+          <input type="password" id="passwordinp" required />
+          <label for="email">Password</label>
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        
+        <input type="checkbox" onclick="myFunction()">Show Password <br><br>
+
+        <button type="submit" id="signup-btn">Sign Up</button>
+        <div class="signUp-link">
+          <p>
+            Already have an account?
+            <a href="login.html" class="signInBtn-link">Login</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <script>   function myFunction() {
+      var x = document.getElementById("passwordinp");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }</script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      import {
+        getDatabase,
+        set,
+        ref,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDqexaW5YyzI8jrDzPpS829E6WQHbq8XYM",
+        authDomain: "dragonflytechclub-e393e.firebaseapp.com",
+        databaseURL:
+          "https://dragonflytechclub-e393e-default-rtdb.firebaseio.com",
+        projectId: "dragonflytechclub-e393e",
+        storageBucket: "dragonflytechclub-e393e.appspot.com",
+        messagingSenderId: "238610046387",
+        appId: "1:238610046387:web:6ffdf41fc62d05c04cffc6",
+      };
+
+      const app = initializeApp(firebaseConfig);
+
+      const db = getDatabase();
+      const auth = getAuth(app);
+
+      let EmailInp = document.getElementById("emailInp");
+      let PassInp = document.getElementById("passwordinp");
+      let FnameInp = document.getElementById("fnameInp");
+
+      let LnameInp = document.getElementById("lnameInp");
+      let MainForm = document.getElementById("MainForm");
+      let signUpBtn = document.getElementById("signup-btn");
+
+      let RegisterUser = (event) => {
+        event.preventDefault();
+        createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+          .then((credentials) => {
+            set(ref(db, "UsersAuthList/" + credentials.user.uid), {
+              firstname: FnameInp.value,
+              lastname: LnameInp.value,
+            });
+            
+            signUpBtn.addEventListener('click' , () => {
+              window.location.href = "./login.html";
+            });
+            
+          })
+          .catch((error) => {
+            alert(error.message);
+            console.log(error.code);
+            console.log(error.message);
+          });
+      };
+      MainForm.addEventListener("submit", RegisterUser);
+    </script>
+  </body>
+</html>
